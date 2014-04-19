@@ -6,18 +6,6 @@
       <xsd:import namespace="http://eduservices.com/" schemaLocation="EduServices_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="dummy">
-    <part name="parameters" element="tns:dummy"/>
-  </message>
-  <message name="dummyResponse">
-    <part name="parameters" element="tns:dummyResponse"/>
-  </message>
-  <message name="getCertificate">
-    <part name="parameters" element="tns:getCertificate"/>
-  </message>
-  <message name="getCertificateResponse">
-    <part name="parameters" element="tns:getCertificateResponse"/>
-  </message>
   <message name="getActiveCourses">
     <part name="parameters" element="tns:getActiveCourses"/>
   </message>
@@ -90,6 +78,12 @@
   <message name="getFutureExaminationsResponse">
     <part name="parameters" element="tns:getFutureExaminationsResponse"/>
   </message>
+  <message name="getCertificate">
+    <part name="parameters" element="tns:getCertificate"/>
+  </message>
+  <message name="getCertificateResponse">
+    <part name="parameters" element="tns:getCertificateResponse"/>
+  </message>
   <message name="getCourse">
     <part name="parameters" element="tns:getCourse"/>
   </message>
@@ -111,6 +105,18 @@
   <message name="getAllCoursesResponse">
     <part name="parameters" element="tns:getAllCoursesResponse"/>
   </message>
+  <message name="updateCourse">
+    <part name="parameters" element="tns:updateCourse"/>
+  </message>
+  <message name="updateCourseResponse">
+    <part name="parameters" element="tns:updateCourseResponse"/>
+  </message>
+  <message name="IllegalOrphanException">
+    <part name="fault" element="tns:IllegalOrphanException"/>
+  </message>
+  <message name="NonexistentCourseException">
+    <part name="fault" element="tns:NonexistentCourseException"/>
+  </message>
   <message name="getTranscript">
     <part name="parameters" element="tns:getTranscript"/>
   </message>
@@ -118,14 +124,6 @@
     <part name="parameters" element="tns:getTranscriptResponse"/>
   </message>
   <portType name="EduServices">
-    <operation name="dummy">
-      <input wsam:Action="http://eduservices.com/EduServices/dummyRequest" message="tns:dummy"/>
-      <output wsam:Action="http://eduservices.com/EduServices/dummyResponse" message="tns:dummyResponse"/>
-    </operation>
-    <operation name="getCertificate">
-      <input wsam:Action="http://eduservices.com/EduServices/getCertificateRequest" message="tns:getCertificate"/>
-      <output wsam:Action="http://eduservices.com/EduServices/getCertificateResponse" message="tns:getCertificateResponse"/>
-    </operation>
     <operation name="getActiveCourses">
       <input wsam:Action="http://eduservices.com/EduServices/getActiveCoursesRequest" message="tns:getActiveCourses"/>
       <output wsam:Action="http://eduservices.com/EduServices/getActiveCoursesResponse" message="tns:getActiveCoursesResponse"/>
@@ -174,6 +172,10 @@
       <input wsam:Action="http://eduservices.com/EduServices/getFutureExaminationsRequest" message="tns:getFutureExaminations"/>
       <output wsam:Action="http://eduservices.com/EduServices/getFutureExaminationsResponse" message="tns:getFutureExaminationsResponse"/>
     </operation>
+    <operation name="getCertificate">
+      <input wsam:Action="http://eduservices.com/EduServices/getCertificateRequest" message="tns:getCertificate"/>
+      <output wsam:Action="http://eduservices.com/EduServices/getCertificateResponse" message="tns:getCertificateResponse"/>
+    </operation>
     <operation name="getCourse">
       <input wsam:Action="http://eduservices.com/EduServices/getCourseRequest" message="tns:getCourse"/>
       <output wsam:Action="http://eduservices.com/EduServices/getCourseResponse" message="tns:getCourseResponse"/>
@@ -187,6 +189,12 @@
       <input wsam:Action="http://eduservices.com/EduServices/getAllCoursesRequest" message="tns:getAllCourses"/>
       <output wsam:Action="http://eduservices.com/EduServices/getAllCoursesResponse" message="tns:getAllCoursesResponse"/>
     </operation>
+    <operation name="updateCourse">
+      <input wsam:Action="http://eduservices.com/EduServices/updateCourseRequest" message="tns:updateCourse"/>
+      <output wsam:Action="http://eduservices.com/EduServices/updateCourseResponse" message="tns:updateCourseResponse"/>
+      <fault message="tns:IllegalOrphanException" name="IllegalOrphanException" wsam:Action="http://eduservices.com/EduServices/updateCourse/Fault/IllegalOrphanException"/>
+      <fault message="tns:NonexistentCourseException" name="NonexistentCourseException" wsam:Action="http://eduservices.com/EduServices/updateCourse/Fault/NonexistentCourseException"/>
+    </operation>
     <operation name="getTranscript">
       <input wsam:Action="http://eduservices.com/EduServices/getTranscriptRequest" message="tns:getTranscript"/>
       <output wsam:Action="http://eduservices.com/EduServices/getTranscriptResponse" message="tns:getTranscriptResponse"/>
@@ -194,24 +202,6 @@
   </portType>
   <binding name="EduServicesPortBinding" type="tns:EduServices">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="dummy">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="getCertificate">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
     <operation name="getActiveCourses">
       <soap:operation soapAction=""/>
       <input>
@@ -320,6 +310,15 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="getCertificate">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="getCourse">
       <soap:operation soapAction=""/>
       <input>
@@ -350,6 +349,21 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="updateCourse">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="IllegalOrphanException">
+        <soap:fault name="IllegalOrphanException" use="literal"/>
+      </fault>
+      <fault name="NonexistentCourseException">
+        <soap:fault name="NonexistentCourseException" use="literal"/>
+      </fault>
+    </operation>
     <operation name="getTranscript">
       <soap:operation soapAction=""/>
       <input>
@@ -362,7 +376,7 @@
   </binding>
   <service name="EduServices">
     <port name="EduServicesPort" binding="tns:EduServicesPortBinding">
-      <soap:address location="http://localhost:8080/EduServices/EduServices"/>
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
     </port>
   </service>
 </definitions>

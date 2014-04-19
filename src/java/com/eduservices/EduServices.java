@@ -220,8 +220,4 @@ public class EduServices {
         return this.impl.getTranscript(person);
     }
     
-    @WebMethod(operationName = "dummy") 
-    public String dummy() {
-        return "Dummy";
-    }
 }
