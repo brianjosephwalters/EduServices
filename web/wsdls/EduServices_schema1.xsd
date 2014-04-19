@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://eduservices.com/" xmlns:tns="http://eduservices.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="PreexistingCourseException" nillable="true" type="tns:preexistingCourseExceptionBean"/>
+
+  <xs:element name="addCourse" nillable="true" type="tns:addCourse"/>
+
+  <xs:element name="addCourseResponse" nillable="true" type="tns:addCourseResponse"/>
+
+  <xs:element name="dummy" nillable="true" type="tns:dummy"/>
+
+  <xs:element name="dummyResponse" nillable="true" type="tns:dummyResponse"/>
+
+  <xs:element name="getActiveCourses" nillable="true" type="tns:getActiveCourses"/>
+
+  <xs:element name="getActiveCoursesResponse" nillable="true" type="tns:getActiveCoursesResponse"/>
+
+  <xs:element name="getAllCertificates" nillable="true" type="tns:getAllCertificates"/>
+
+  <xs:element name="getAllCertificatesResponse" nillable="true" type="tns:getAllCertificatesResponse"/>
+
+  <xs:element name="getAllCourses" nillable="true" type="tns:getAllCourses"/>
+
+  <xs:element name="getAllCoursesResponse" nillable="true" type="tns:getAllCoursesResponse"/>
+
+  <xs:element name="getAllExaminations" nillable="true" type="tns:getAllExaminations"/>
+
+  <xs:element name="getAllExaminationsResponse" nillable="true" type="tns:getAllExaminationsResponse"/>
+
+  <xs:element name="getAllSections" nillable="true" type="tns:getAllSections"/>
+
+  <xs:element name="getAllSectionsResponse" nillable="true" type="tns:getAllSectionsResponse"/>
+
+  <xs:element name="getCertificate" nillable="true" type="tns:getCertificate"/>
+
+  <xs:element name="getCertificateResponse" nillable="true" type="tns:getCertificateResponse"/>
+
+  <xs:element name="getCertificatesByPerson" nillable="true" type="tns:getCertificatesByPerson"/>
+
+  <xs:element name="getCertificatesByPersonResponse" nillable="true" type="tns:getCertificatesByPersonResponse"/>
+
+  <xs:element name="getCourse" nillable="true" type="tns:getCourse"/>
+
+  <xs:element name="getCourseResponse" nillable="true" type="tns:getCourseResponse"/>
+
+  <xs:element name="getCurrentSections" nillable="true" type="tns:getCurrentSections"/>
+
+  <xs:element name="getCurrentSectionsResponse" nillable="true" type="tns:getCurrentSectionsResponse"/>
+
+  <xs:element name="getFutureExaminations" nillable="true" type="tns:getFutureExaminations"/>
+
+  <xs:element name="getFutureExaminationsResponse" nillable="true" type="tns:getFutureExaminationsResponse"/>
+
+  <xs:element name="getFutureSections" nillable="true" type="tns:getFutureSections"/>
+
+  <xs:element name="getFutureSectionsResponse" nillable="true" type="tns:getFutureSectionsResponse"/>
+
+  <xs:element name="getInactiveCourses" nillable="true" type="tns:getInactiveCourses"/>
+
+  <xs:element name="getInactiveCoursesResponse" nillable="true" type="tns:getInactiveCoursesResponse"/>
+
+  <xs:element name="getPastExaminations" nillable="true" type="tns:getPastExaminations"/>
+
+  <xs:element name="getPastExaminationsResponse" nillable="true" type="tns:getPastExaminationsResponse"/>
+
+  <xs:element name="getPastSections" nillable="true" type="tns:getPastSections"/>
+
+  <xs:element name="getPastSectionsResponse" nillable="true" type="tns:getPastSectionsResponse"/>
+
+  <xs:element name="getSectionsByCourse" nillable="true" type="tns:getSectionsByCourse"/>
+
+  <xs:element name="getSectionsByCourseResponse" nillable="true" type="tns:getSectionsByCourseResponse"/>
+
+  <xs:element name="getTranscript" nillable="true" type="tns:getTranscript"/>
+
+  <xs:element name="getTranscriptResponse" nillable="true" type="tns:getTranscriptResponse"/>
+
+  <xs:complexType name="getTranscript">
+    <xs:sequence>
+      <xs:element name="person" type="tns:person" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="person">
+    <xs:sequence>
+      <xs:element name="addressList" type="tns:address" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="attendedList" type="tns:attended" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="certificateList" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="employmentList" type="tns:employment" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="examTakenList" type="tns:examTaken" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="gender" type="xs:string" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="personCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="phoneNumberList" type="tns:phoneNumber" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="skillList" type="tns:skill" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element name="addressCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="addressType" type="xs:string" minOccurs="0"/>
+      <xs:element name="city" type="xs:string" minOccurs="0"/>
+      <xs:element name="companyList" type="tns:company" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="personList" type="tns:person" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="street1" type="xs:string" minOccurs="0"/>
+      <xs:element name="street2" type="xs:string" minOccurs="0"/>
+      <xs:element name="zipcode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="company">
+    <xs:sequence>
+      <xs:element name="addressList" type="tns:address" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="certificateList" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="companyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="companyName" type="xs:string" minOccurs="0"/>
+      <xs:element name="jobList" type="tns:job" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="phoneNumberList" type="tns:phoneNumber" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="projectList" type="tns:project" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="sectionList" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="specialtyList" type="tns:specialty" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="toolList" type="tns:tool" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="website" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="certificate">
+    <xs:sequence>
+      <xs:element name="certificateCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="certificateDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="certificateTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="companyCode" type="tns:company" minOccurs="0"/>
+      <xs:element name="courseList" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="daysValid" type="xs:int" minOccurs="0"/>
+      <xs:element name="examTypeList" type="tns:examType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobList" type="tns:job" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobProfileList" type="tns:jobProfile" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="personList" type="tns:person" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="toolCode" type="tns:tool" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="course">
+    <xs:sequence>
+      <xs:element name="certificateList" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="courseCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="courseDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="courseLevel" type="xs:string" minOccurs="0"/>
+      <xs:element name="courseList" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="courseList1" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="courseTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="retailPrice" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="sectionList" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="skillList" type="tns:skill" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="section">
+    <xs:sequence>
+      <xs:element name="attendedList" type="tns:attended" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="companyList" type="tns:company" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="cost" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="course" type="tns:course" minOccurs="0"/>
+      <xs:element name="formatCode" type="tns:format" minOccurs="0"/>
+      <xs:element name="sectionPK" type="tns:sectionPK" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="attended">
+    <xs:sequence>
+      <xs:element name="attendedPK" type="tns:attendedPK" minOccurs="0"/>
+      <xs:element name="completedDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="person" type="tns:person" minOccurs="0"/>
+      <xs:element name="score" type="xs:short" minOccurs="0"/>
+      <xs:element name="section" type="tns:section" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="attendedPK">
+    <xs:sequence>
+      <xs:element name="courseCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="personCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="sectionCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="year" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="format">
+    <xs:sequence>
+      <xs:element name="fees" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="formatCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="formatDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="formatName" type="xs:string" minOccurs="0"/>
+      <xs:element name="sectionList" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sectionPK">
+    <xs:sequence>
+      <xs:element name="courseCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="sectionCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="year" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="skill">
+    <xs:sequence>
+      <xs:element name="courseList" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobList" type="tns:job" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobProfileList" type="tns:jobProfile" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="personList" type="tns:person" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="skillCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="skillDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="skillLevel" type="xs:string" minOccurs="0"/>
+      <xs:element name="skillName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="job">
+    <xs:sequence>
+      <xs:element name="certificateList" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="closingDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="companyCode" type="tns:company" minOccurs="0"/>
+      <xs:element name="employmentList" type="tns:employment" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="jobProfileCode" type="tns:jobProfile" minOccurs="0"/>
+      <xs:element name="jobType" type="xs:string" minOccurs="0"/>
+      <xs:element name="openingDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="payRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="payType" type="xs:string" minOccurs="0"/>
+      <xs:element name="projectList" type="tns:project" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="skillList" type="tns:skill" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employment">
+    <xs:sequence>
+      <xs:element name="employmentPK" type="tns:employmentPK" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="job" type="tns:job" minOccurs="0"/>
+      <xs:element name="person" type="tns:person" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employmentPK">
+    <xs:sequence>
+      <xs:element name="jobCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="personCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="jobProfile">
+    <xs:sequence>
+      <xs:element name="certificateList" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobList" type="tns:job" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="jobProfileCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="jobProfileDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="jobProfileTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="skillList" type="tns:skill" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="project">
+    <xs:sequence>
+      <xs:element name="budgetCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="companyCode" type="tns:company" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="jobList" type="tns:job" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="projectCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="projectTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="examType">
+    <xs:sequence>
+      <xs:element name="certificateCode" type="tns:certificate" minOccurs="0"/>
+      <xs:element name="examList" type="tns:exam" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="examTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="examTypeCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exam">
+    <xs:sequence>
+      <xs:element name="examDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="examPK" type="tns:examPK" minOccurs="0"/>
+      <xs:element name="examTakenList" type="tns:examTaken" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="examType" type="tns:examType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="examPK">
+    <xs:sequence>
+      <xs:element name="examCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="examTypeCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="examTaken">
+    <xs:sequence>
+      <xs:element name="exam" type="tns:exam" minOccurs="0"/>
+      <xs:element name="examTakenPK" type="tns:examTakenPK" minOccurs="0"/>
+      <xs:element name="person" type="tns:person" minOccurs="0"/>
+      <xs:element name="score" type="xs:short" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="examTakenPK">
+    <xs:sequence>
+      <xs:element name="examCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="examTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="personCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tool">
+    <xs:sequence>
+      <xs:element name="certificateList" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="companyList" type="tns:company" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="toolCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="toolDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="toolName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="phoneNumber">
+    <xs:sequence>
+      <xs:element name="companyList" type="tns:company" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="personList" type="tns:person" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="phoneCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="phoneNum" type="xs:string" minOccurs="0"/>
+      <xs:element name="phoneType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="specialty">
+    <xs:sequence>
+      <xs:element name="companyList" type="tns:company" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="specialtyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="specialtyName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTranscriptResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:transcript" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transcript">
+    <xs:sequence>
+      <xs:element name="certifications" type="tns:certificationRecord" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="courses" type="tns:courseRecord" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="dateGenerated" type="xs:string" minOccurs="0"/>
+      <xs:element name="studentID" type="xs:string" minOccurs="0"/>
+      <xs:element name="studentName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="certificationRecord">
+    <xs:sequence>
+      <xs:element name="certificateCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="certificateName" type="xs:string" minOccurs="0"/>
+      <xs:element name="examCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="examDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="examScore" type="xs:string" minOccurs="0"/>
+      <xs:element name="validUntil" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="courseRecord">
+    <xs:sequence>
+      <xs:element name="courseCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="courseName" type="xs:string" minOccurs="0"/>
+      <xs:element name="grade" type="xs:string" minOccurs="0"/>
+      <xs:element name="sectionCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="year" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCourse">
+    <xs:sequence>
+      <xs:element name="courseCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCourseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:course" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCurrentSections">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getCurrentSectionsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getInactiveCourses">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getInactiveCoursesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllSections">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllSectionsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFutureSections">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getFutureSectionsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getFutureExaminations">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getFutureExaminationsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:exam" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addCourse">
+    <xs:sequence>
+      <xs:element name="course" type="tns:course" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addCourseResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="preexistingCourseExceptionBean">
+    <xs:sequence>
+      <xs:element name="courseCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="courseTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllCertificates">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllCertificatesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getPastSections">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getPastSectionsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getPastExaminations">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getPastExaminationsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:exam" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getActiveCourses">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getActiveCoursesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllExaminations">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllExaminationsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:exam" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getSectionsByCourse">
+    <xs:sequence>
+      <xs:element name="courseCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getSectionsByCourseResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:section" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dummy">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="dummyResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllCourses">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllCoursesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:course" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCertificate">
+    <xs:sequence>
+      <xs:element name="certificateCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCertificateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:certificate" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCertificatesByPerson">
+    <xs:sequence>
+      <xs:element name="person" type="tns:person" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCertificatesByPersonResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:certificate" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" 
+           targetNamespace="http://dol.com/" 
+           xmlns:tns="http://dol.com/" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="addSkillToPosition" type="tns:addSkillToPosition"/>
+
+  <xs:element name="addSkillToPositionResponse" type="tns:addSkillToPositionResponse"/>
+
+  <xs:element name="dropSkillFromOccupation" type="tns:dropSkillFromOccupation"/>
+
+  <xs:element name="dropSkillFromOccupationResponse" type="tns:dropSkillFromOccupationResponse"/>
+
+  <xs:element name="getOccupationFromSkill" type="tns:getOccupationFromSkill"/>
+
+  <xs:element name="getOccupationFromSkillResponse" type="tns:getOccupationFromSkillResponse"/>
+
+  <xs:element name="getOccupationsByType" type="tns:getOccupationsByType"/>
+
+  <xs:element name="getOccupationsByTypeResponse" type="tns:getOccupationsByTypeResponse"/>
+
+  <xs:element name="getSkillsByType" type="tns:getSkillsByType"/>
+
+  <xs:element name="getSkillsByTypeResponse" type="tns:getSkillsByTypeResponse"/>
+
+  <xs:element name="getSkillsFromPosition" type="tns:getSkillsFromPosition"/>
+
+  <xs:element name="getSkillsFromPositionResponse" type="tns:getSkillsFromPositionResponse"/>
+
+  <xs:complexType name="getOccupationsByType">
+    <xs:sequence>
+      <xs:element name="skillType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getOccupationsByTypeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:occupation" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="occupation">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="occupationID" type="xs:int" minOccurs="0"/>
+      <xs:element name="title" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getSkillsByType">
+    <xs:sequence>
+      <xs:element name="skillType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getSkillsByTypeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:skill" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="skill">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="level" type="xs:int" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="skillID" type="xs:int" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dropSkillFromOccupation">
+    <xs:sequence>
+      <xs:element name="skillID" type="xs:int" minOccurs="0"/>
+      <xs:element name="occupationID" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dropSkillFromOccupationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addSkillToPosition">
+    <xs:sequence>
+      <xs:element name="occupationID" type="xs:int" minOccurs="0"/>
+      <xs:element name="skillID" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addSkillToPositionResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getSkillsFromPosition">
+    <xs:sequence>
+      <xs:element name="occupationID" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getSkillsFromPositionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:skill" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getOccupationFromSkill">
+    <xs:sequence>
+      <xs:element name="skillID" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getOccupationFromSkillResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:occupation" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
