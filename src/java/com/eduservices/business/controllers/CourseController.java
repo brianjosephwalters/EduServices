@@ -50,11 +50,12 @@ public class CourseController {
     
     public void addCourse(Course course) 
             throws PreexistingEntityException, Exception {
-            new CourseJpaController(emf).create(course);
+        // Change to proper course class.
+        new CourseJpaController(emf).create(course);
     }
     
     public void updateCourse(Course course) 
-        throws IllegalOrphanException, NonexistentEntityException, Exception {
+            throws IllegalOrphanException, NonexistentEntityException, Exception {
         new CourseJpaController(emf).edit(course);
     }
     
